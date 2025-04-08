@@ -2384,7 +2384,7 @@
 			margin-top: 24rpx;
 		}
 
-		:nth-last-child() {
+		:last-child {
 			margin-right: 0
 		}
 
