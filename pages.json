@@ -1,0 +1,645 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#2c2c2c",
+		"borderStyle": "white",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/home/home",
+				"iconPath": "static/tabbar/home-1.png",
+				"selectedIconPath": "static/tabbar/home.png",
+				"text": "首页"
+			},
+			// {
+			// 	"pagePath": "pages/index/index",
+			// 	"iconPath": "static/tabbar/home-1.png",
+			// 	"selectedIconPath": "static/tabbar/home.png",
+			// 	"text": "首页"
+			// },
+			{
+				"pagePath": "pages/find/find",
+				"iconPath": "static/tabbar/quanzi-1.png",
+				"selectedIconPath": "static/tabbar/quanzi.png",
+				"text": "发现"
+			},
+			{
+				"pagePath": "pages/xunbao/xunbao",
+				"iconPath": "static/tabbar/xunbao-1.png",
+				"selectedIconPath": "static/tabbar/xunbao.png",
+				"text": "寻宝"
+			},
+			// {
+			// 	"pagePath": "pages/message/message",
+			// 	"iconPath": "static/tabbar/msg-1.png",
+			// 	"selectedIconPath": "static/tabbar/msg.png",
+			// 	"text": "消息"
+			// },
+			{
+				"pagePath": "pages/my/my",
+				"iconPath": "static/tabbar/my-1.png",
+				"selectedIconPath": "static/tabbar/my.png",
+				"text": "我的"
+			}
+		]
+	},
+	"pages": [{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "主页",
+				"backgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/lottery-history/lottery-history",
+			"style": {
+				"navigationBarTitleText": "历史开奖",
+				"backgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/lottery-venue/lottery-venue",
+			"style": {
+				"navigationBarTitleText": "开奖现场",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/index/search",
+			"style": {
+				"navigationBarTitleText": "论坛搜索",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/query-helper/query-helper",
+			"style": {
+				"navigationBarTitleText": "查询助手",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/lottery-history/lottery-record",
+			"style": {
+				"navigationBarTitleText": "开奖记录",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/information/information",
+			"style": {
+				"navigationBarTitleText": "资料大全",
+				"backgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/picture/picture",
+			"style": {
+				"navigationBarTitleText": "图片帖子",
+				"backgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/xunbao/xunbao",
+			"style": {
+				"navigationBarTitleText": "寻宝",
+				"backgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/find/find",
+			"style": {
+				"navigationBarTitleText": "发现",
+				"backgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/statistics/statistics",
+			"style": {
+				"navigationBarTitleText": "资讯统计",
+				"backgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/liuhe/liuhe",
+			"style": {
+				"navigationBarTitleText": "六合图库",
+				"backgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/lottery-venue/video",
+			"style": {
+				"navigationBarTitleText": "视频回放",
+				"backgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		},
+		// 一下是旧的
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "主页",
+				"backgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/my",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/post/detail",
+			"style": {
+				"navigationBarTitleText": "论坛帖子",
+				"backgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/post/confirm",
+			"style": {
+				"navigationBarTitleText": "付费确认"
+			}
+		},
+		{
+			"path": "pages/user/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		}, {
+			"path": "pages/user/home",
+			"style": {
+				"navigationBarTitleText": "个人主页",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/topic/detail",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true,
+				"navigationBarTextStyle": "white"
+			}
+		}, {
+			"path": "pages/discuss/detail",
+			"style": {}
+		}, {
+			"path": "pages/my/discuss",
+			"style": {}
+		}, {
+			"path": "pages/my/topic",
+			"style": {}
+		}, {
+			"path": "pages/my/post",
+			"style": {}
+		}, {
+			"path": "pages/my/thumb",
+			"style": {}
+		}, {
+			"path": "pages/post/add",
+			"style": {}
+		}, {
+			"path": "pages/message/message",
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/message/list",
+			"style": {}
+		}, {
+			"path": "pages/my/fans",
+			"style": {}
+		}, {
+			"path": "pages/my/follow",
+			"style": {}
+		}, {
+			"path": "pages/topic/add/add",
+			"style": {}
+		}, {
+			"path": "pages/square/square",
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/topic/class-list",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/discuss/add",
+			"style": {}
+		}, {
+			"path": "pages/user/edit-info/edit",
+			"style": {}
+		}, {
+			"path": "pages/user/edit-info/submit",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/topic/list",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/jump/jump",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/post/video-detail",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"navigationBarTextStyle": "white"
+			}
+
+		},
+		{
+			"path": "pages/system/system",
+			"style": {
+				"navigationBarTitleText": "系统消息",
+				"enablePullDownRefresh": true
+			}
+
+		},
+		{
+			"path": "pages/system/notice",
+			"style": {
+				"navigationBarTitleText": "公告列表",
+				"enablePullDownRefresh": true
+			}
+
+		},
+		{
+			"path": "pages/discuss/list",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/topic/choose-topic/choose-topic",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/webview/webview",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/topic/topic-user",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/user/sms-login",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/topic/info-edit",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/topic/add/category",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/topic/admin",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/vote/vote",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/discuss/choose-discuss/choose-discuss",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}
+
+		, {
+			"path": "pages/pay/pay",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/account/account",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/bill/bill",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/sign/sign",
+			"style": {
+				"navigationBarTitleText": "签到",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/sign/integral",
+			"style": {
+				"navigationBarTitleText": "我的积分",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/user/contact",
+			"style": {
+				"navigationBarTitleText": "联系客服",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/luck-draw/luck-draw",
+			"style": {
+				"navigationBarTitleText": "抽奖",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/luck-draw/prize-record",
+			"style": {
+				"navigationBarTitleText": "抽奖记录",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/user/go-login",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/user/email-login",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/user/register",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/user/protocol",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/report/report",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/report/list",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/report/detail",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/user/vip/vip",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/im/chat/chat",
+			"style": {
+				"navigationBarTitleText": "私聊",
+				"enablePullDownRefresh": false,
+				"backgroundColor": "#333",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"type": "menu"
+						}]
+					}
+				}
+
+			}
+
+		},
+		{
+			"path": "pages/im/chat-list/chat-list",
+			"style": {
+				"navigationBarTitleText": "IM",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true
+			}
+		}, {
+			"path": "pages/im/customer-service-list/customer-service-list",
+			"style": {
+				"navigationBarTitleText": "客服列表",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true
+			}
+		}, {
+			"path": "pages/im/notice-list/notice-list",
+			"style": {
+				"navigationBarTitleText": "通知消息",
+				"navigationStyle": "default"
+			}
+
+		}, {
+			"path": "pages/user/edit-info/setting",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}
+
+		, {
+			"path": "pages/account/cash-out",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/error/error",
+			"style": {
+				"navigationBarTitleText": "404",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/post/video",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"navigationBarTextStyle": "white"
+			}
+
+		}
+	],
+	"subPackages": [{
+		"root": "subpages/content",
+		"pages": [{
+				"path": "article/article",
+				"style": {
+					"navigationBarTitleText": "详情"
+				}
+			},
+			{
+				"path": "article/add",
+				"style": {
+					"navigationBarTitleText": "发布",
+					"backgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"enablePullDownRefresh": true,
+					"navigationStyle": "custom"
+				}
+
+			}
+
+
+			, {
+				"path": "member-management/member-management",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "topic-apply/topic-apply",
+				"style": {
+					"navigationBarTitleText": "进圈答题",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "apply-list/apply-list",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "level/level",
+				"style": {
+
+					"navigationBarTitleText": "用户经验等级"
+				}
+			}
+		]
+	}],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "88开奖网",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#FFFFFF",
+		"rpxCalcMaxDeviceWidth": 400, // rpx 计算所支持的最大设备宽度，单位 px，默认值为 960
+		"rpxCalcBaseDeviceWidth": 375, // rpx 计算使用的基准设备宽度，设备实际宽度超出 rpx 计算所支持的最大设备宽度时将按基准宽度计算，单位 px，默认值为 375
+		"rpxCalcIncludeWidth": 750 // rpx 计算特殊处理的值，始终按实际的设备宽度计算，单位 rpx，默认值为 750
+	}
+}
