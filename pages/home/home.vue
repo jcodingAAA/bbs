@@ -55,17 +55,16 @@
 						历史记录
 					</view>
 				</view>
+				<view style="width: 100%;text-align: right;padding-bottom: 10rpx;">
+					<switch color="#07C160" :checked="alwayShow" @change="changeAlwayShow" size="small"/>
+				</view>
 				<view class="platform_data">
 					<view class="platform_data_box" v-for=" (item,index) in lastLotteryRecord.numberList" :key="index">
 						<view style="font-size: 40rpx;font-weight: bold;margin-top: 8rpx;margin-right: 15rpx;"
 							v-if="index == lastLotteryRecord.numberList.length - 1">
 							+
 						</view>
-						<view class="platform_data_ball" @click="()=>{
-							if(index == lastLotteryRecord.numberList.length - 1){
-								doScratch(item)
-							}
-						}">
+						<view v-if="alwayShow||index !== lastLotteryRecord.numberList.length - 1" class="platform_data_ball">
 							<view class="number"
 								:class="item.color == '1' ? 'ball_red' : item.color == '2' ? 'ball_blue' : 'ball_green'">
 								<view class="ball_big">
@@ -76,6 +75,11 @@
 							</view>
 							<view class="text">
 								{{item.wuXing}}/{{item.shengXiao}}
+							</view>
+						</view>
+						<view v-else class="scratch-entry" @click="doScratch(item)">
+							<view class="scratch-entry-box">
+								<text>刮开</text>
 							</view>
 						</view>
 					</view>
@@ -217,6 +221,7 @@
 		},
 		data() {
 			return {
+				alwayShow:false,
 				targetItem:{},
 				galleryShow:false,
 				navbarHeight: 0,
@@ -256,6 +261,11 @@
 		onLoad() {
 			this.navigationBarHeight = getApp().globalData.navigationBarHeight;
 			this.statusBarHeight = getApp().globalData.statusBarHeight;
+			if(uni.getStorageSync('alway-show')){
+				this.alwayShow = uni.getStorageSync('alway-show');
+			}else{
+				this.alwayShow = false;
+			}
 			// 开奖记录
 			if (uni.getStorageSync('lotteryTypeId')) {
 				this.lotteryTypeId = uni.getStorageSync('lotteryTypeId')
@@ -313,6 +323,15 @@
 			doScratch(item) {
 				this.targetItem = item;
 				this.showScratchPopup = true;
+			},
+			changeAlwayShow({detail}){
+				if(detail.value){
+					this.alwayShow = true;
+					uni.setStorageSync('alway-show', true);
+				}else{
+					this.alwayShow = false;
+					uni.setStorageSync('alway-show', false);
+				}
 			},
 			closeScratchPopup() {
 				this.showScratchPopup = false;
@@ -567,7 +586,16 @@
 	page {
 		overflow-x: unset;
 	}
-
+.scratch-entry{
+	width: 88rpx;
+	height: 133rpx;
+	line-height: 93rpx;
+	.scratch-entry-box{
+		background-color: #ddd;
+		text-align: center;
+		height: 88rpx;
+	}
+}
 	.index-con {
 		background-color: #f5f5f5;
 	}
