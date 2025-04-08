@@ -61,14 +61,17 @@
 							v-if="index == lastLotteryRecord.numberList.length - 1">
 							+
 						</view>
-						<view class="platform_data_ball">
+						<view class="platform_data_ball" @click="()=>{
+							if(index == lastLotteryRecord.numberList.length - 1){
+								doScratch(item)
+							}
+						}">
 							<view class="number"
 								:class="item.color == '1' ? 'ball_red' : item.color == '2' ? 'ball_blue' : 'ball_green'">
 								<view class="ball_big">
 									{{item.number}}
 								</view>
 								<view class="ball_small">
-
 								</view>
 							</view>
 							<view class="text">
@@ -152,6 +155,47 @@
 			</view>
 		</view>
 		<popup v-if="showNotice" :title="'公告'" :content="bulletin" @closePop="closePop"></popup>
+		<!-- 刮刮卡弹窗 -->
+		<view class="scratch-popup" v-if="showScratchPopup">
+			<view class="scratch-popup-content">
+				<view style="width: 100%;height: 20vh;background-image: url('/static/menu_dialog_gua_bg.png');background-size: cover;"></view>
+				<view class="scratch-popup-body">
+					<dengbo-lotteryScratch 
+						ref="scratchCard" 
+						backendColor="#94e7b7"
+						watermarkTxt="六合至尊"
+						:lightImgs="scratchLightImages">
+						<!-- 刮刮卡内容 -->
+						<template v-slot:scratch-value>
+							<view style="width: 200px; height: 200px; display: flex; align-items: center; justify-content: center;">
+								<view class="scratch-item">
+									<view class="platform_data_ball" >
+									<view class="number"
+									:class="targetItem.color == '1' ? 'ball_red' : targetItem.color == '2' ? 'ball_blue' : 'ball_green'">
+									<view class="ball_big">
+										{{targetItem.number}}
+									</view>
+									<view class="ball_small">
+
+									</view>
+								</view>
+							</view>
+							<view class="text">
+								{{targetItem.wuXing}}/{{targetItem.shengXiao}}
+							</view>
+								</view>
+							</view>
+						</template>
+					</dengbo-lotteryScratch>
+					
+				</view>
+				<view style="width: 100; padding-top: 2vh;display: flex; justify-content: center;">
+				<view style="background-color: white;border-radius: 100%;width: 50rpx;height: 50rpx; display: flex; align-items: center; justify-content: center;" @click="closeScratchPopup">
+					<view>×</view>
+				</view>
+				</view>
+			</view>
+		</view>
 		<!-- tabbar -->
 		<lf-tabbar :active="0" :count="messegeNum"></lf-tabbar>
 		<!-- 返回顶部 -->
@@ -173,6 +217,7 @@
 		},
 		data() {
 			return {
+				targetItem:{},
 				galleryShow:false,
 				navbarHeight: 0,
 				navigationBarHeight: 0,
@@ -201,6 +246,8 @@
 				loadStatus: 'loadmore',
 				flowList: [],
 				isMobile: false, // 用于判断是否为移动设备
+				showScratchPopup: false,  // 控制刮刮卡是否可刮
+				scratchLightImages: ['/static/gpoint1.png', '/static/gpoint2.png'], // 闪光灯图片
 			};
 		},
 		computed: {
@@ -263,6 +310,19 @@
 		},
 
 		methods: {
+			doScratch(item) {
+				this.targetItem = item;
+				this.showScratchPopup = true;
+			},
+			closeScratchPopup() {
+				this.showScratchPopup = false;
+			},
+			startScratch() {
+				console.log('刮刮卡开始');
+				if (this.$refs.scratchCard) {
+					this.$refs.scratchCard.init(); 
+				}
+			},
 			checkDeviceType() {
 				// 使用用户代理字符串判断是否为移动设备
 				const userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -493,9 +553,9 @@
 					});
 			},
 			goUrl(item) {
-				if (item.url) {
+				if (item.linkUrl) {
 					uni.navigateTo({
-						url: item.url
+						url: '/pages/webview/webview?url=' + encodeURIComponent(item.linkUrl)
 					})
 				}
 			}
@@ -551,6 +611,63 @@
 	.banner {
 		margin-top: 105rpx;
 	}
+
+	.scratch-item{
+		.platform_data_ball {
+					.number {
+						width: 176rpx;
+						height: 176rpx;
+						border-radius: 100rpx;
+						position: relative;
+
+						.ball_big {
+							width: 144rpx;
+							height: 144rpx;
+							border-radius: 100rpx;
+							background-color: white;
+							position: absolute;
+							top: 8rpx;
+							left: 8rpx;
+							text-align: center;
+							line-height: 144rpx;
+							color: #666;
+							font-weight: bold;
+							font-size: 76rpx;
+						}
+
+						.ball_small {
+							width: 40rpx;
+							height: 40rpx;
+							background-color: white;
+							position: absolute;
+							bottom: 16rpx;
+							right: 20rpx;
+							border-radius: 50%;
+							transform: rotate(135deg) scale(1, 0.5);
+						}
+					}
+
+					.ball_red {
+						background-color: rgb(255, 51, 51);
+					}
+
+					.ball_blue {
+						background-color: rgb(51, 153, 255);
+					}
+
+					.ball_green {
+						background-color: rgb(19, 203, 70);
+					}
+					
+				}
+				.text {
+					text-align: center;
+					font-size: 52rpx;
+					color: #666;
+					margin-top: 12rpx;
+				}
+	}
+
 
 	.box {
 		width: 100%;
@@ -677,7 +794,6 @@
 						background-color: rgb(19, 203, 70);
 					}
 				}
-
 				.text {
 					text-align: center;
 					font-size: 26rpx;
@@ -881,5 +997,56 @@
 
 	::v-deep .u-sticky {
 		z-index: 5 !important;
+	}
+	
+	/* 刮刮卡弹窗样式 */
+	.scratch-popup {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 999;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	.scratch-popup-content {
+		width: 45%;
+		background-color: transparent;
+		border-radius: 20rpx;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.scratch-popup-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 20rpx 30rpx;
+		border-bottom: 1px solid #eee;
+	}
+	
+	.scratch-popup-title {
+		font-size: 32rpx;
+		font-weight: bold;
+	}
+	
+	.scratch-popup-close {
+		font-size: 40rpx;
+		color: #999;
+		padding: 0 10rpx;
+	}
+	
+	.scratch-popup-body {
+		height: 30vh;
+		padding: 30rpx;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
 	}
 </style>
